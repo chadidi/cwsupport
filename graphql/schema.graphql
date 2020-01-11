@@ -15,6 +15,10 @@ type User {
     updated_at: DateTime!
 }
 
+type Query {
+    me: User @auth(guard: "api")
+}
+
 type LoginPayload {
     token_type: String!
     access_token: String!
