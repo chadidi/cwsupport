@@ -55,4 +55,16 @@ class AuthMutator
             'user' => $user,
         ];
     }
+
+    public function logout($rootValue, array $args, GraphQLContext $context)
+    {
+        $user = auth()->user();
+        $user->api_token = null;
+        $user->save();
+
+        return [
+            'status'  => 'success',
+            'message' => 'Logged out seccessfully!',
+        ];
+    }
 }

@@ -25,6 +25,11 @@ type AuthPayload {
     user: User
 }
 
+type LogoutResponse {
+    status: String!
+    message: String
+}
+
 type Mutation {
     login(email: String!, password: String!): AuthPayload
         @field(resolver: "AuthMutator@resolve")
@@ -35,4 +40,8 @@ type Mutation {
         password: String! @rules(apply: ["required", "confirmed", "min:6"])
         password_confirmation: String!
     ): AuthPayload @field(resolver: "AuthMutator@register")
+
+    logout: LogoutResponse!
+        @field(resolver: "AuthMutator@logout")
+        @middleware(checks: ["auth:api"])
 }
