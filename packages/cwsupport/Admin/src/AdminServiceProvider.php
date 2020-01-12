@@ -15,7 +15,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'cwsupport');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'cwsupport');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
@@ -34,9 +34,9 @@ class AdminServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/admin.php', 'admin');
 
         // Register the service the package provides.
-        $this->app->singleton('admin', function ($app) {
-            return new Admin;
-        });
+        // $this->app->singleton('admin', function ($app) {
+        //     return new Admin;
+        // });
     }
 
     /**
@@ -60,6 +60,16 @@ class AdminServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/admin.php' => config_path('admin.php'),
         ], 'admin.config');
+
+        // Publishing the migration files.
+        $this->publishes([
+            __DIR__ . '/../database/migrations/' => database_path('migrations'),
+        ], 'migrations');
+
+        // Publishing the factory files.
+        $this->publishes([
+            __DIR__ . '/../database/factories/' => database_path('factories'),
+        ], 'factories');
 
         // Publishing the views.
         /*$this->publishes([
