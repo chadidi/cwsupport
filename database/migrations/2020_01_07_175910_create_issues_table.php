@@ -17,7 +17,7 @@ class CreateIssuesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->text('content');
+            $table->text('description');
             $table->enum('status', ['SUBMITTED', 'IN_PROGRESS', 'RESOLVED', 'CLOSED'])->default('SUBMITTED');
             $table->timestamps();
         });
