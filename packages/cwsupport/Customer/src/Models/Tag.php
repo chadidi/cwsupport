@@ -3,12 +3,15 @@
 namespace cwsupport\Customer\Models;
 
 use Illuminate\Support\Str;
+use cwsupport\Customer\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Tag extends Model
 {
+    use HasSlug;
+
     protected $fillable = [
         'name',
         'slug',
@@ -44,17 +47,10 @@ class Tag extends Model
         return is_string($values) ? $tags->first() : $tags;
     }
 
-    public static function findFromSlug(string $slug)
-    {
-        return static::query()
-            ->where('slug', $slug)
-            ->first();
-    }
-
     protected static function findOrCreateFromString(string $name)
     {
         $slug = Str::slug($name);
-        $tag = static::findFromSlug($slug);
+        $tag = static::getBySlug($slug);
 
         if (! $tag) {
             $tag = static::create([

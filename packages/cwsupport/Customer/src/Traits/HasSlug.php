@@ -78,4 +78,9 @@ trait HasSlug
             ->where('id', '<>', $id)
             ->get();
     }
+
+    public static function getBySlug($slug)
+    {
+        return self::where('slug', $slug)->first();
+    }
 }
