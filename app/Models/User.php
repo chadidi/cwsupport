@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -38,6 +39,20 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'is_admin' => 'boolean',
+        // 'is_admin' => 'boolean',
     ];
+
+    public function issues() : HasMany
+    {
+        return $this->hasMany(Issue::class);
+    }
+
+    // hash a password before saving
+    public function setPasswordAttribute($password)
+    {
+        // Only accept a valid password
+        if ($password !== null & $password !== "") {
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
 }
