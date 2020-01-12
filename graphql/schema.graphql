@@ -20,6 +20,27 @@ type User {
     api_token: String
     created_at: DateTime!
     updated_at: DateTime!
+    issues(orderBy: [OrderByClause!] @orderBy): [Issue!]! @hasMany
+}
+
+type Issue {
+    id: ID!
+    title: String!
+    description: String!
+    status: IssueStatus!
+    created_at: DateTime!
+    updated_at: DateTime!
+    user: User! @belongsTo
+    tags: [Tag!]! @belongsToMany
+}
+
+type Tag {
+    id: ID!
+    name: String!
+    slug: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    issues: [Issue!]! @belongsToMany
 }
 
 type Mutation {
