@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\HasTags;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Issue extends Model
 {
+    use HasTags;
     /**
      * The attributes that are mass assignable.
      *
@@ -15,16 +16,13 @@ class Issue extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'content',
+        'description',
         'status',
+        'tags',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    public function tags() : MorphToMany
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
     }
 }
