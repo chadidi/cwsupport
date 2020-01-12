@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits;
+namespace cwsupport\Customer\Traits;
 
-use App\Models\Tag;
+use cwsupport\Customer\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
