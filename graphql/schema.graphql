@@ -5,6 +5,29 @@ scalar DateTime
 "A date string with format `Y-m-d`, e.g. `2011-05-23`."
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
+enum IssueStatus {
+    SUBMITTED
+    IN_PROGRESS
+    RESOLVED
+    CLOSED
+}
+
+type IssuePaginator {
+    paginatorInfo: PaginatorInfo!
+    data: [Issue!]!
+}
+
+type PaginatorInfo {
+    count: Int!
+    currentPage: Int!
+    firstItem: Int
+    hasMorePages: Boolean!
+    lastItem: Int
+    lastPage: Int!
+    perPage: Int!
+    total: Int!
+}
+
 type User {
     id: ID!
     name: String!
@@ -13,10 +36,75 @@ type User {
     api_token: String
     created_at: DateTime!
     updated_at: DateTime!
+    issues(orderBy: [OrderByClause!] @orderBy): [Issue!]! @hasMany
+}
+
+type Issue {
+    id: ID!
+    title: String!
+    description: String!
+    status: IssueStatus!
+    created_at: DateTime!
+    updated_at: DateTime!
+    user: User! @belongsTo
+    tags: [Tag!]! @belongsToMany
+}
+
+type Tag {
+    id: ID!
+    name: String!
+    slug: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    issues: [Issue!]! @belongsToMany
+}
+
+input OrderByClause {
+    field: String!
+    order: SortOrder!
+}
+
+enum SortOrder {
+    ASC
+    DESC
+}
+
+type Query {
+    issue(id: ID! @eq): Issue @find @can(ability: "show", find: "id")
+
+    issues(orderBy: [OrderByClause!] @orderBy): [Issue!]!
+        @paginate
+        @can(ability: "list")
 }
 
 type Mutation {
-    #
+    submitIssue(
+        title: String! @rules(apply: ["string", "min:6", "max:100"])
+        description: String! @rules(apply: ["string", "min:15", "max:2000"])
+        tags: [String!]!
+            @rules(apply: ["string"])
+            @rulesForArray(apply: ["max:7"])
+    ): Issue
+        @field(resolver: "IssueMutator@submit")
+        @middleware(checks: ["auth:api"])
+
+    updateIssue(
+        id: ID! @rules(apply: ["integer", "exists:issues"])
+        title: String! @rules(apply: ["string", "min:6", "max:100"])
+        description: String! @rules(apply: ["string", "min:15", "max:2000"])
+        status: IssueStatus!
+        tags: [String!]!
+            @rules(apply: ["string"])
+            @rulesForArray(apply: ["max:7"])
+    ): Issue
+        @field(resolver: "IssueMutator@update")
+        @middleware(checks: ["auth:api"])
+        @can(ability: "update", find: "id")
+
+    closeIssue(id: ID! @rules(apply: ["integer", "exists:issues"])): Issue
+        @field(resolver: "IssueMutator@close")
+        @middleware(checks: ["auth:api"])
+        @can(ability: "close", find: "id")
 }
 
 #import ./auth.graphql
