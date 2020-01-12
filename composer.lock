@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bb4dacacf43532a01bf1d3d6dd3bbe1",
+    "content-hash": "44261b41498e482e9cd7f97312031f1d",
     "packages": [
+        {
+            "name": "asm89/stack-cors",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asm89/stack-cors.git",
+                "reference": "b9c31def6a83f84b4d4a40d35996d375755f0e08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asm89/stack-cors/zipball/b9c31def6a83f84b4d4a40d35996d375755f0e08",
+                "reference": "b9c31def6a83f84b4d4a40d35996d375755f0e08",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/http-foundation": "~2.7|~3.0|~4.0|~5.0",
+                "symfony/http-kernel": "~2.7|~3.0|~4.0|~5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0 || ^4.8.10",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Asm89\\Stack\\": "src/Asm89/Stack/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                }
+            ],
+            "description": "Cross-origin resource sharing library and stack middleware",
+            "homepage": "https://github.com/asm89/stack-cors",
+            "keywords": [
+                "cors",
+                "stack"
+            ],
+            "time": "2019-12-24T22:41:47+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
@@ -332,6 +384,73 @@
                 "trusted proxy"
             ],
             "time": "2019-12-20T13:11:11+00:00"
+        },
+        {
+            "name": "fruitcake/laravel-cors",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fruitcake/laravel-cors.git",
+                "reference": "4b1f95aeaef2c8c201519833ad212bcbf909f15e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fruitcake/laravel-cors/zipball/4b1f95aeaef2c8c201519833ad212bcbf909f15e",
+                "reference": "4b1f95aeaef2c8c201519833ad212bcbf909f15e",
+                "shasum": ""
+            },
+            "require": {
+                "asm89/stack-cors": "^1.3",
+                "illuminate/support": "^5.5|^6.0|^7.0",
+                "php": ">=7",
+                "symfony/http-foundation": "^3.3|^4|^5.0",
+                "symfony/http-kernel": "^3.3|^4|^5.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^5.5|^6.0|^7.0",
+                "orchestra/testbench": "^3.5|^4.0|^5.0",
+                "phpro/grumphp": "^0.16|^0.17",
+                "phpunit/phpunit": "^6.0|^7.0|^8.0",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Fruitcake\\Cors\\CorsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fruitcake\\Cors\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fruitcake",
+                    "homepage": "https://fruitcake.nl"
+                },
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Adds CORS (Cross-Origin Resource Sharing) headers support in your Laravel application",
+            "keywords": [
+                "api",
+                "cors",
+                "crossdomain",
+                "laravel"
+            ],
+            "time": "2019-12-31T17:28:15+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1053,6 +1172,95 @@
                 "php"
             ],
             "time": "2019-11-08T13:50:10+00:00"
+        },
+        {
+            "name": "nuwave/lighthouse",
+            "version": "v4.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nuwave/lighthouse.git",
+                "reference": "c048a6a1aa9af4fec71ff4a397a44d2d3938a54d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/c048a6a1aa9af4fec71ff4a397a44d2d3938a54d",
+                "reference": "c048a6a1aa9af4fec71ff4a397a44d2d3938a54d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/contracts": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "illuminate/http": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "illuminate/pagination": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "illuminate/routing": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "illuminate/support": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "illuminate/validation": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "php": ">= 7.1",
+                "webonyx/graphql-php": "^0.13.2"
+            },
+            "require-dev": {
+                "bensampo/laravel-enum": "^1.22",
+                "haydenpierce/class-finder": "^0.4.0",
+                "laravel/lumen-framework": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0",
+                "laravel/scout": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+                "localheinz/composer-normalize": "^1.3",
+                "mll-lab/graphql-php-scalars": "^2.1",
+                "mockery/mockery": "^1.0",
+                "nunomaduro/larastan": "^0.4.1",
+                "orchestra/database": "3.5.* || 3.6.* || 3.7.* || 3.8.* || 3.9.* || ^4.0",
+                "orchestra/testbench": "3.5.* || 3.6.* || 3.7.* || 3.8.* || 3.9.* || ^4.0",
+                "phpbench/phpbench": "@dev",
+                "phpunit/phpunit": "^6.5 || ^7.5 || ^8.4",
+                "pusher/pusher-php-server": "^3.2"
+            },
+            "suggest": {
+                "bensampo/laravel-enum": "Convenient enum definitions that can easily be registered in your Schema",
+                "laravel/scout": "Required for the @search directive",
+                "mll-lab/graphql-php-scalars": "Useful scalar types, required for @whereConstraints",
+                "mll-lab/laravel-graphql-playground": "GraphQL IDE for better development workflow - integrated with Laravel"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nuwave\\Lighthouse\\LighthouseServiceProvider",
+                        "Nuwave\\Lighthouse\\SoftDeletes\\SoftDeletesServiceProvider"
+                    ],
+                    "aliases": {
+                        "graphql": "Nuwave\\Lighthouse\\GraphQL"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nuwave\\Lighthouse\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Moore",
+                    "email": "chris@nuwavecommerce.com",
+                    "homepage": "https://www.nuwavecommerce.com"
+                },
+                {
+                    "name": "Benedikt Franke",
+                    "email": "benedikt@franke.tech",
+                    "homepage": "https://franke.tech"
+                }
+            ],
+            "description": "Lighthouse is a schema first GraphQL package for Laravel applications.",
+            "homepage": "https://lighthouse-php.com",
+            "keywords": [
+                "api",
+                "graphql",
+                "laravel",
+                "laravel-graphql"
+            ],
+            "time": "2019-12-13T07:09:34+00:00"
         },
         {
             "name": "opis/closure",
@@ -3055,6 +3263,58 @@
                 "environment"
             ],
             "time": "2019-09-10T21:37:39+00:00"
+        },
+        {
+            "name": "webonyx/graphql-php",
+            "version": "v0.13.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webonyx/graphql-php.git",
+                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6829ae58f4c59121df1f86915fb9917a2ec595e8",
+                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.1||^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0",
+                "phpbench/phpbench": "^0.14.0",
+                "phpstan/phpstan": "^0.11.4",
+                "phpstan/phpstan-phpunit": "^0.11.0",
+                "phpstan/phpstan-strict-rules": "^0.11.0",
+                "phpunit/phpcov": "^5.0",
+                "phpunit/phpunit": "^7.2",
+                "psr/http-message": "^1.0",
+                "react/promise": "2.*"
+            },
+            "suggest": {
+                "psr/http-message": "To use standard GraphQL server",
+                "react/promise": "To leverage async resolving on React PHP platform"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GraphQL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP port of GraphQL reference implementation",
+            "homepage": "https://github.com/webonyx/graphql-php",
+            "keywords": [
+                "api",
+                "graphql"
+            ],
+            "time": "2019-08-25T10:32:47+00:00"
         }
     ],
     "packages-dev": [

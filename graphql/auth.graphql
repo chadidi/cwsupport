@@ -1,0 +1,30 @@
+extend type Query {
+    me: User @auth(guard: "api")
+}
+
+type AuthPayload {
+    token_type: String!
+    access_token: String!
+    user: User
+}
+
+type LogoutResponse {
+    status: String!
+    message: String
+}
+
+extend type Mutation {
+    login(email: String!, password: String!): AuthPayload
+        @field(resolver: "AuthMutator@resolve")
+
+    register(
+        name: String! @rules(apply: ["required", "string"])
+        email: String! @rules(apply: ["required", "email", "unique:users"])
+        password: String! @rules(apply: ["required", "confirmed", "min:6"])
+        password_confirmation: String!
+    ): AuthPayload @field(resolver: "AuthMutator@register")
+
+    logout: LogoutResponse!
+        @field(resolver: "AuthMutator@logout")
+        @middleware(checks: ["auth:api"])
+}
