@@ -22,12 +22,11 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
 
-        $issue = $user->issues()->save(
-            factory(Issue::class)->make([
-                'user_id' => $user->id
-            ])
-        );
-        $tags = factory(Tag::class, 3)->create();
-        $issue->tags()->attach($tags);
+        $issues = factory(Issue::class, 10)->create(['user_id' => $user->id]);
+        $issues->each(function ($issue) {
+            $tags = factory(Tag::class, 3)->create();
+            
+            $issue->tags()->attach($tags);
+        });
     }
 }
