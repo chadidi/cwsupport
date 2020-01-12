@@ -15,7 +15,7 @@ class CustomerServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'cwsupport');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'cwsupport');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
@@ -34,9 +34,9 @@ class CustomerServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/customer.php', 'customer');
 
         // Register the service the package provides.
-        $this->app->singleton('customer', function ($app) {
-            return new Customer;
-        });
+        // $this->app->singleton('customer', function ($app) {
+        //     return new Customer;
+        // });
     }
 
     /**
@@ -60,6 +60,16 @@ class CustomerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/customer.php' => config_path('customer.php'),
         ], 'customer.config');
+
+        // Publishing the migration files.
+        $this->publishes([
+            __DIR__ . '/../database/migrations/' => database_path('migrations'),
+        ], 'migrations');
+
+        // Publishing the factory files.
+        $this->publishes([
+            __DIR__ . '/../database/factories/' => database_path('factories'),
+        ], 'factories');
 
         // Publishing the views.
         /*$this->publishes([
