@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44261b41498e482e9cd7f97312031f1d",
+    "content-hash": "69499ceb6c8299c215c2475f2cf720c6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,116 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "cwsupport/admin",
+            "version": "dev-feature/customer_package",
+            "dist": {
+                "type": "path",
+                "url": "/home/vagrant/Projects/cwsupport/packages/cwsupport/Admin",
+                "reference": "9a5db4c099f85ba9495fe3437674ecf6b1c5de3d"
+            },
+            "require": {
+                "illuminate/support": "~5|~6"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3|~4",
+                "phpunit/phpunit": "^8.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "cwsupport\\Admin\\AdminServiceProvider"
+                    ],
+                    "aliases": {
+                        "Admin": "cwsupport\\Admin\\Facades\\Admin"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "cwsupport\\Admin\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "cwsupport\\Admin\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "license"
+            ],
+            "authors": [
+                {
+                    "name": "Abdellah Chadidi",
+                    "email": "chadidi97@gmail.com",
+                    "homepage": "https://www.chadidi.dev"
+                }
+            ],
+            "description": ":description",
+            "homepage": "https://github.com/cwsupport/admin",
+            "keywords": [
+                "Admin",
+                "Laravel"
+            ]
+        },
+        {
+            "name": "cwsupport/customer",
+            "version": "dev-feature/customer_package",
+            "dist": {
+                "type": "path",
+                "url": "/home/vagrant/Projects/cwsupport/packages/cwsupport/Customer",
+                "reference": "91e4461015548018ece5046880032fe89966908a"
+            },
+            "require": {
+                "illuminate/support": "~5|~6"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3|~4",
+                "phpunit/phpunit": "^8.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "cwsupport\\Customer\\CustomerServiceProvider"
+                    ],
+                    "aliases": {
+                        "Customer": "cwsupport\\Customer\\Facades\\Customer"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "cwsupport\\Customer\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "cwsupport\\Customer\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "license"
+            ],
+            "authors": [
+                {
+                    "name": "Abdellah Chadidi",
+                    "email": "chadidi97@gmail.com",
+                    "homepage": "https://www.chadidi.deev"
+                }
+            ],
+            "description": ":description",
+            "homepage": "https://github.com/cwsupport/customer",
+            "keywords": [
+                "Customer",
+                "Laravel"
+            ]
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -5304,7 +5414,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "cwsupport/admin": 20,
+        "cwsupport/customer": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
