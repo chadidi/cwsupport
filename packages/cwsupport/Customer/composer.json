@@ -1,0 +1,41 @@
+{
+    "name": "cwsupport/customer",
+    "description": ":description",
+    "license": "license",
+    "authors": [{
+        "name": "Abdellah Chadidi",
+        "email": "chadidi97@gmail.com",
+        "homepage": "https://www.chadidi.dev"
+    }],
+    "homepage": "https://github.com/cwsupport/customer",
+    "keywords": ["Laravel", "Customer"],
+    "require": {
+        "illuminate/support": "~5|~6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "cwsupport\\Customer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "cwsupport\\Customer\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "cwsupport\\Customer\\CustomerServiceProvider"
+            ],
+            "aliases": {
+                "Customer": "cwsupport\\Customer\\Facades\\Customer"
+            }
+        }
+    }
+}
