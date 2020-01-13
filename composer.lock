@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69499ceb6c8299c215c2475f2cf720c6",
+    "content-hash": "f1ac7801b7e2d03c4c66be3e298d7172",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,10 +60,10 @@
         },
         {
             "name": "cwsupport/admin",
-            "version": "dev-feature/customer_package",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "/home/vagrant/Projects/cwsupport/packages/cwsupport/Admin",
+                "url": "./packages/cwsupport/Admin",
                 "reference": "9a5db4c099f85ba9495fe3437674ecf6b1c5de3d"
             },
             "require": {
@@ -115,11 +115,11 @@
         },
         {
             "name": "cwsupport/customer",
-            "version": "dev-feature/customer_package",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "/home/vagrant/Projects/cwsupport/packages/cwsupport/Customer",
-                "reference": "91e4461015548018ece5046880032fe89966908a"
+                "url": "./packages/cwsupport/Customer",
+                "reference": "863fb14177dd1224537c71a584aa6fd422befb7c"
             },
             "require": {
                 "illuminate/support": "~5|~6"
@@ -158,7 +158,7 @@
                 {
                     "name": "Abdellah Chadidi",
                     "email": "chadidi97@gmail.com",
-                    "homepage": "https://www.chadidi.deev"
+                    "homepage": "https://www.chadidi.dev"
                 }
             ],
             "description": ":description",
