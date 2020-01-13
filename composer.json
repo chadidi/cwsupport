@@ -9,8 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "cwsupport/admin": "dev-feature/customer_package",
-        "cwsupport/customer": "dev-feature/customer_package",
+        "cwsupport/admin": "dev-master",
+        "cwsupport/customer": "dev-master",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^1.0",
         "laravel/framework": "^6.2",
@@ -65,11 +65,11 @@
     "repositories": {
         "cwsupport/customer": {
             "type": "path",
-            "url": "/home/vagrant/Projects/cwsupport/packages/cwsupport/Customer"
+            "url": "./packages/cwsupport/Customer"
         },
         "cwsupport/admin": {
             "type": "path",
-            "url": "/home/vagrant/Projects/cwsupport/packages/cwsupport/Admin"
+            "url": "./packages/cwsupport/Admin"
         }
     }
 }
